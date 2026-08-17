@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+  .dark {
+    color-scheme: dark;
+  }
+  * {
+    @apply border-gray-200 dark:border-slate-700/60;
+  }
+  body {
+    @apply bg-gray-50 text-gray-900 antialiased dark:bg-slate-950 dark:text-slate-100;
+    font-feature-settings: 'cv11', 'ss01';
+    font-variation-settings: 'opsz' 32;
+  }
+  ::selection {
+    @apply bg-brand-500/30;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl border border-gray-200/80 dark:border-slate-700/50;
+  }
+  .glass-strong {
+    @apply bg-white/95 dark:bg-slate-900/90 backdrop-blur-2xl border border-gray-200 dark:border-slate-700/60;
+  }
+  .card {
+    @apply bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700/60 rounded-2xl;
+  }
+  .card-hover {
+    @apply transition-all duration-200 hover:shadow-lg hover:shadow-gray-200/50 dark:hover:shadow-black/30 hover:border-gray-300 dark:hover:border-slate-600;
+  }
+  .input-base {
+    @apply w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-slate-800/60 border border-gray-200 dark:border-slate-700 text-sm text-gray-900 dark:text-slate-100 placeholder-gray-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500/40 focus:border-brand-500 transition;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-primary {
+    @apply btn bg-brand-600 text-white hover:bg-brand-700 active:scale-[0.98] shadow-sm shadow-brand-600/20;
+  }
+  .btn-ghost {
+    @apply btn text-gray-600 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-800;
+  }
+  .btn-outline {
+    @apply btn border border-gray-200 dark:border-slate-700 text-gray-700 dark:text-slate-200 hover:bg-gray-50 dark:hover:bg-slate-800;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium;
+  }
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(203 213 225) transparent;
+  }
+  .dark .scrollbar-thin {
+    scrollbar-color: rgb(51 65 85) transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 dark:bg-slate-700 rounded-full;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
+
+/* Drag styles */
+.dragging {
+  @apply opacity-50 scale-[0.98];
+}
+.drag-over {
+  @apply ring-2 ring-brand-500 ring-offset-2 dark:ring-offset-slate-900;
+}
+
+/* Custom range slider */
+input[type="range"] {
+  @apply appearance-none w-full h-1.5 bg-gray-200 dark:bg-slate-700 rounded-full cursor-pointer;
+}
+input[type="range"]::-webkit-slider-thumb {
+  @apply appearance-none w-4 h-4 bg-brand-600 rounded-full shadow-sm border-2 border-white dark:border-slate-900;
+}
+input[type="range"]::-moz-range-thumb {
+  @apply w-4 h-4 bg-brand-600 rounded-full border-2 border-white dark:border-slate-900;
+}
